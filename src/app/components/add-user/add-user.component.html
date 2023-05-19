@@ -1,0 +1,92 @@
+<app-header></app-header>
+
+<!-- form-content-->
+<div class="form-content">
+
+  <form [formGroup]="personFormGroup"  action="#" (ngSubmit)="onSubmit()">
+    <!-- form-head-->
+    <div class="form-head">
+      <span class="head">PERSON ADDRESS FORM</span>
+      <a routerLink="/home-page" class="close-button">
+        <img src="../assets/images/cancelButton.png" alt="">
+      </a>
+    </div>
+
+    <!-------Input FullName--------->
+    <div class="row-content">
+      <mat-label class="label text" for="name">Full Name</mat-label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input class="input" matInput ngDefaultControl formControlName="name">
+        <!-- <mat-error *ngIf="checkError('fullName', 'required')">Name is required</mat-error>
+        <mat-error *ngIf="checkError('fullName', 'pattern')">Name should start with upper case and should have minimum of 3 characters</mat-error> -->
+      </mat-form-field>
+    </div>
+
+    <!-------Input PhoneNumber--------->
+    <div class="row-content-style">
+      <mat-label class="label text" for="phone">Phone Number</mat-label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <input class="input" matInput ngDefaultControl formControlName="phoneNumber">
+        <!-- <mat-error *ngIf="checkError('phoneNumber', 'required')">Phone Number is required</mat-error>
+        <mat-error *ngIf="checkError('phoneNumber', 'pattern')">Phone number should be start with digit between 6-9 and length should be equal to 10</mat-error> -->
+      </mat-form-field>
+    </div>
+
+    <!-------Input Address--------->
+    <div class="row-content-style">
+      <mat-label class="label text" for="address">Address</mat-label>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <textarea matInput class="input" style="height:80px" ngDefaultControl formControlName="address"></textarea>
+        <!-- <mat-error *ngIf="checkError('address', 'required')">Address is required</mat-error> -->
+      </mat-form-field>
+    </div>
+
+    <div class="row-content-address">
+      <div class="city-container subAddress">
+        <!-------Input City--------->
+        <mat-label class="label text">City</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label class="label text">Select City</mat-label>
+          <mat-select ngDefaultControl formControlName="city">
+            <mat-option  value="Mumbai">Mumbai</mat-option>
+            <mat-option value="Pune">Pune</mat-option>
+            <mat-option value="Udaipur">Udaipur</mat-option>
+            <mat-option value="Banglore">Banglore</mat-option>
+            <mat-option value="Chennai">Chennai</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-------Input State--------->
+      <div class="state-container subAddress">
+        <mat-label class="label text">State</mat-label>
+        <mat-form-field appearance="outline">
+          <mat-label class="label text">Select State</mat-label>
+          <mat-select ngDefaultControl formControlName="state">
+            <mat-option value="Karnataka">Karnataka</mat-option>
+            <mat-option value="Kerala">Kerala</mat-option>
+            <mat-option value="MadhyaPradesh">Madhya Pradesh</mat-option>
+            <mat-option value="Maharashtra">Maharashtra</mat-option>
+            <mat-option value="Rajasthan">Rajasthan</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!-------Input ZipCode--------->
+      <div class="zip-container subAddress">
+        <mat-label class="label text">ZipCode</mat-label>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <input matInput ngDefaultControl formControlName="zipCode">
+          <!-- <mat-error *ngIf="checkError('zipNo', 'required')">Zip Code is required</mat-error>
+          <mat-error *ngIf="checkError('zipNo', 'pattern')">Zip Code should be of 6 digits</mat-error> -->
+        </mat-form-field>
+      </div>
+    </div>
+      
+    <!-------Adding Add and Reset Button--------->
+    <div class="submit-reset">
+      <button mat-raised-button type="submit" class="button" id="addButton">Add</button>
+      <button mat-raised-button type="reset" class="button">Reset</button>
+    </div>
+  </form>
+</div>

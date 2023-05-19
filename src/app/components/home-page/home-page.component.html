@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<!-- header-content-->
+<div class="main-content">
+  <div class="header-content">
+    <div class="person-detail-text">Person Details</div>
+    <div>
+      <a routerLink="/add-user" class="add-button">
+        <img src="../assets/icons/attach_file.svg" alt="">Add Person</a>
+    </div>
+  </div>
+
+  <!-- table-heading-->
+  <div class="table-main">
+    <table id="table-display" class="table">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZipCode</th>
+        <th>PhoneNumber</th>
+        <th></th>
+      </tr>
+      <!-- <tr>
+        <td>Shiwani Paunikar</td>
+        <td>Budhwari</td>
+        <td>Nagpur</td>
+        <td>MH</td>
+        <td>234156</td>
+        <td>9834521680</td>
+        <td>
+          <img id=1 src="../assets/icons/delete.svg" alt="delete">
+          &nbsp;
+          <img id=1 src="../assets/icons/edit.svg" alt="edit">
+        </td>
+      </tr>
+       -->
+       <tr *ngFor="let person of personDetails">
+        <!-- <td>
+            <img class="profile" src="{{person.profilePic}}" alt="">
+        </td> -->
+        <td>{{person.name}}</td>
+        <td>{{person.address}}</td>
+        <td>{{person.city}}</td>
+
+        <td>{{person.state}}</td>
+
+        <td>{{person.zipCode}}</td>
+
+        <td>{{person.phoneNumber}}</td>
+
+    
+        <td>
+            <img id="{{person.addressBookId}}" src="../assets/icons/delete.svg" alt="delete" (click)="remove(person.addressBookId)">
+            &nbsp;
+            <img id="{{person.addressBookId}}" src="../assets/icons/edit.svg" alt="edit" (click)="update(person)"> 
+        </td>
+    </tr>
